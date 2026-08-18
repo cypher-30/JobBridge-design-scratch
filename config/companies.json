@@ -1,0 +1,92 @@
+{
+  "_notes": [
+    "Companies change ATS providers over time — verify each entry still resolves before you rely on it (visit the boards_url in a browser).",
+    "greenhouse: GET https://boards-api.greenhouse.io/v1/boards/{token}/jobs — no auth required.",
+    "lever: GET https://api.lever.co/v0/postings/{site}?mode=json — no auth required.",
+    "scraped: no public API — you supply CSS selectors for the ingestion worker to use. Lowest confidence, most likely to break, wrap in try/catch.",
+    "To add a company: add an entry below, then run `npm run seed`. No code changes needed.",
+    "Scraped entries whose company_name starts with EXAMPLE are ignored by the seeder — use that prefix for templates.",
+    "Kenya research pass (2026-08): most Kenyan fintechs/startups (Cellulant, Pesapal, M-KOPA, Wasoko, Twiga Foods) use their own ATS (Freshteam, Ashby, custom) or none at all, not Greenhouse/Lever — see config/outreach_contacts.json for those instead. Sendy (logistics) confirmed shut down in 2023, excluded. BrighterMonday Kenya and Fuzu are promising scraped-source candidates (many Kenyan employers post there) but their listing pages are worth checking with a real browser dev-tools inspection — a markdown-rendered fetch can't reliably yield literal CSS selectors, so no scraped entry was added for them here to avoid guessing selectors."
+  ],
+
+  "greenhouse": [
+    {
+      "token": "stripe",
+      "company_name": "Stripe",
+      "boards_url": "https://boards.greenhouse.io/stripe",
+      "api_url": "https://boards-api.greenhouse.io/v1/boards/stripe/jobs"
+    },
+    {
+      "token": "moniepoint",
+      "company_name": "Moniepoint",
+      "boards_url": "https://job-boards.eu.greenhouse.io/moniepoint",
+      "api_url": "https://boards-api.greenhouse.io/v1/boards/moniepoint/jobs",
+      "notes": "Verified 2026-08 — 120 open roles at fetch time, several explicitly 'Nairobi, Kenya' or 'Remote, Kenya' (e.g. Financial Planning Analyst, Data Scientist (Fraud)). Fintech; board is EU-hosted for display but the standard boards-api.greenhouse.io endpoint works."
+    }
+  ],
+
+  "lever": [
+    {
+      "site": "spotify",
+      "company_name": "Spotify",
+      "boards_url": "https://jobs.lever.co/spotify",
+      "api_url": "https://api.lever.co/v0/postings/spotify?mode=json"
+    },
+    {
+      "site": "palantir",
+      "company_name": "Palantir",
+      "boards_url": "https://jobs.lever.co/palantir",
+      "api_url": "https://api.lever.co/v0/postings/palantir?mode=json"
+    },
+    {
+      "site": "tala",
+      "company_name": "Tala",
+      "boards_url": "https://jobs.lever.co/tala",
+      "api_url": "https://api.lever.co/v0/postings/tala?mode=json",
+      "notes": "Verified 2026-08 — board resolves with real postings. Consumer lending fintech with a Nairobi office hub; postings at fetch time skewed toward MX/US/IN/PH, so Kenya-based roles may come and go — re-check before relying on it."
+    }
+  ],
+
+  "ashby": [
+    {
+      "hosted_jobs_page": "M-KOPA",
+      "company_name": "M-KOPA",
+      "boards_url": "https://jobs.ashbyhq.com/M-KOPA"
+    }
+  ],
+
+  "smartrecruiters": [
+    {
+      "company_identifier": "smartrecruiters",
+      "company_name": "SmartRecruiters (Demo Org)",
+      "boards_url": "https://jobs.smartrecruiters.com/smartrecruiters",
+      "notes": "Demo/validation source for connector health. Replace or disable in production if not relevant to your target geo."
+    }
+  ],
+
+  "scraped": [
+    {
+      "company_name": "Python.org Job Board",
+      "careers_url": "https://www.python.org/jobs/",
+      "selectors": {
+        "job_list_item": ".list-recent-jobs li",
+        "title": ".listing-company-name a",
+        "link": ".listing-company-name a",
+        "location": ".listing-location",
+        "date_posted": ".listing-posted time"
+      },
+      "notes": "Server-rendered Django page — a reliable demo of selector-based scraping. Listings come from many employers; they land under this source's company name (best-effort source)."
+    },
+    {
+      "company_name": "EXAMPLE — replace with a real target",
+      "careers_url": "https://example.com/careers",
+      "selectors": {
+        "job_list_item": ".job-listing",
+        "title": ".job-title",
+        "link": "a.job-link",
+        "date_posted": ".job-date"
+      },
+      "notes": "Fill in selectors by inspecting the real page's HTML in devtools. This is the fragile path — expect to maintain these per company."
+    }
+  ]
+}

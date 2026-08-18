@@ -1,0 +1,21 @@
+{
+  "name": "jobbridge",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "migrate": "node server/db/migrate.js",
+    "seed": "node server/db/seed.js",
+    "test": "node --test server/test/*.test.js",
+    "ingest": "node server/ingestion/run.js",
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "npm run dev --workspace client",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

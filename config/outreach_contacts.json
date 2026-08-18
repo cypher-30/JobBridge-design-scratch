@@ -1,0 +1,129 @@
+{
+  "_notes": [
+    "Direct HR-outreach targets — smaller and more curated than config/companies.json (job ingestion targets). Most small Kenyan startups won't have a Greenhouse/Lever/scrapeable careers page at all, so this list is often the only channel to them.",
+    "is_example: true rows are placeholders using RFC 2606 reserved example.com/example.org addresses — never contact them. Real rows should have is_example omitted or false.",
+    "why_fit is the highest-leverage field: it's what keeps a drafted email specific instead of generic. Fill it in by hand per company.",
+    "Run `npm run seed` with SEED_USER_EMAIL set in .env to load these into your outreach list."
+  ],
+  "contacts": [
+    {
+      "company_name": "Example Fintech Kenya (PLACEHOLDER)",
+      "sector": "fintech",
+      "location": "Nairobi, Kenya",
+      "careers_url": "https://example.com/careers",
+      "contact_name": "Jane Example",
+      "contact_email": "hr@example.com",
+      "source": "placeholder — replace via research",
+      "notes": "Seed row to validate the schema only. Not a real company.",
+      "tech_stack": ["Python", "Django", "PostgreSQL"],
+      "why_fit": "PLACEHOLDER: fill in a real, specific reason once verified.",
+      "accepts_attachments": "unknown",
+      "is_example": true
+    },
+    {
+      "company_name": "Example AgriTech Startup (PLACEHOLDER)",
+      "sector": "agritech",
+      "location": "Nairobi, Kenya",
+      "careers_url": "https://example.org/jobs",
+      "contact_name": null,
+      "contact_email": "careers@example.org",
+      "source": "placeholder — replace via research",
+      "notes": "Seed row to validate the schema only. Not a real company.",
+      "tech_stack": ["Kotlin", "Android", "Firebase"],
+      "why_fit": "PLACEHOLDER: fill in a real, specific reason once verified.",
+      "accepts_attachments": "unknown",
+      "is_example": true
+    },
+    {
+      "company_name": "Safaricom PLC",
+      "sector": "telecom / fintech (M-Pesa)",
+      "location": "Nairobi, Kenya",
+      "careers_url": "https://www.safaricom.co.ke/careers",
+      "contact_name": null,
+      "contact_email": null,
+      "source": "Verified 2026-08 via web search — Safaricom's own internship/attachment announcements",
+      "notes": "Kenya's largest tech/telecom employer. Confirmed structured '3-Month Industrial Attachment' program with intakes in April, July, October, and JANUARY — the January intake lines up directly with a Jan-Apr 2027 attachment window. Technology is one of the listed departments. Apply via their official career portal, not a direct HR email (none found).",
+      "tech_stack": [],
+      "why_fit": "Explicitly runs a 3-month industrial attachment program with a January intake — a direct match for your Jan-Apr 2027 window — with a Technology track alongside other departments.",
+      "accepts_attachments": "true"
+    },
+    {
+      "company_name": "Moniepoint",
+      "sector": "fintech",
+      "location": "Nairobi, Kenya (also London, Lagos)",
+      "careers_url": "https://job-boards.eu.greenhouse.io/moniepoint",
+      "contact_name": null,
+      "contact_email": null,
+      "source": "Verified 2026-08 — Greenhouse board fetched directly, real Nairobi/Kenya-located roles present",
+      "notes": "Also tracked in config/companies.json for ingestion (Greenhouse token 'moniepoint'). Tech stack not independently confirmed from the roles seen — verify against a specific posting before referencing it in a draft.",
+      "tech_stack": [],
+      "why_fit": "Actively hiring for Nairobi/Kenya-based roles right now (confirmed via their live job board) at a fast-growing pan-African fintech.",
+      "accepts_attachments": "unknown"
+    },
+    {
+      "company_name": "Tala",
+      "sector": "fintech (consumer lending)",
+      "location": "Nairobi, Kenya (global remote-first)",
+      "careers_url": "https://jobs.lever.co/tala",
+      "contact_name": null,
+      "contact_email": null,
+      "source": "Verified 2026-08 — Lever board fetched directly",
+      "notes": "Well-known fintech with a long-standing Nairobi hub. Also tracked in config/companies.json for ingestion (Lever site 'tala'). Postings at fetch time were mostly outside Kenya — check current listings before assuming a local opening exists.",
+      "tech_stack": [],
+      "why_fit": "Established fintech with real Nairobi presence and a public, verifiable job board — worth a direct approach even when no Kenya-specific req is currently posted.",
+      "accepts_attachments": "unknown"
+    },
+    {
+      "company_name": "Pesapal",
+      "sector": "fintech (payments)",
+      "location": "Nairobi, Kenya",
+      "careers_url": "https://pesapal.freshteam.com",
+      "contact_name": null,
+      "contact_email": null,
+      "source": "Verified 2026-08 via web search — multiple live postings referenced (Technical Support Engineer, Frontend Developer) on Pesapal's own career portal",
+      "notes": "Kenyan-founded payments company. Uses Freshteam as its ATS, not Greenhouse/Lever, so it isn't in companies.json. No public HR email found — apply through the portal.",
+      "tech_stack": [],
+      "why_fit": "Kenyan-founded payments company with active frontend/backend engineering hiring — good sector overlap for a software engineering attachment.",
+      "accepts_attachments": "unknown"
+    },
+    {
+      "company_name": "M-KOPA",
+      "sector": "fintech (asset financing)",
+      "location": "Nairobi, Kenya (HQ: 21 Riverside Paddocks)",
+      "careers_url": "https://www.m-kopa.com/careers",
+      "contact_name": null,
+      "contact_email": null,
+      "source": "Verified 2026-08 — careers page fetched directly, confirms Nairobi HQ",
+      "notes": "Uses Ashby (jobs.ashbyhq.com/M-KOPA) as its ATS, not Greenhouse/Lever. No internship/attachment program mentioned on the fetched page. 3,000+ employee fintech financing smartphones/solar/loans across Africa.",
+      "tech_stack": [],
+      "why_fit": "Large, Nairobi-headquartered fintech with an active engineering org (roles like Research Scientist, ML seen in postings) — a credible target even without a confirmed attachment program.",
+      "accepts_attachments": "unknown"
+    },
+    {
+      "company_name": "Wasoko",
+      "sector": "B2B e-commerce / logistics",
+      "location": "Nairobi, Kenya",
+      "careers_url": "https://wasoko.com/careers/",
+      "contact_name": null,
+      "contact_email": null,
+      "source": "Found via web search (careers page existence confirmed by search result, not independently fetched — lower confidence than the entries above)",
+      "notes": "Formerly Sokowatch. B2B e-commerce platform for African retail. Verify the careers page directly before relying on it — this entry has not been fetched and inspected first-hand.",
+      "tech_stack": [],
+      "why_fit": "Nairobi-based e-commerce/logistics platform at meaningful scale — worth a direct approach; confirm current openings before drafting.",
+      "accepts_attachments": "unknown"
+    },
+    {
+      "company_name": "Cellulant",
+      "sector": "fintech (payments)",
+      "location": "Nairobi, Kenya (pan-African)",
+      "careers_url": "https://www.cellulant.io/careers/",
+      "contact_name": null,
+      "contact_email": null,
+      "source": "Found via web search only — direct fetch of the careers page returned HTTP 403, so this entry is unverified beyond search snippets",
+      "notes": "LOWER CONFIDENCE: could not independently confirm current openings or a contact email (a jobs@cellulant.com address appeared in search results but was not verified first-hand — do not treat it as confirmed). Backend/mobile engineering roles have historically been posted (Java/Spring per past listings). Re-verify before drafting to this one.",
+      "tech_stack": [],
+      "why_fit": "Leading pan-African payments company headquartered partly in Nairobi — strong sector fit if current openings can be confirmed.",
+      "accepts_attachments": "unknown"
+    }
+  ]
+}
