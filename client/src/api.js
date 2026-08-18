@@ -11,6 +11,8 @@ async function request(path, options = {}) {
 
 export const api = {
   me: () => request('/api/me'),
+  dashboardSummary: (windowDays = 7) =>
+    request(`/api/dashboard/summary?${new URLSearchParams({ window_days: String(windowDays) })}`),
   login: (email) => request('/api/auth/login', { method: 'POST', body: JSON.stringify({ email }) }),
   logout: () => request('/api/auth/logout', { method: 'POST' }),
   jobs: (params) => request(`/api/jobs?${new URLSearchParams(params)}`),

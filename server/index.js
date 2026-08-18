@@ -9,6 +9,7 @@ import { analyzeRouter } from './routes/analyze.js';
 import { ingestRouter } from './routes/ingest.js';
 import { searchesRouter } from './routes/searches.js';
 import { outreachRouter } from './routes/outreach.js';
+import { dashboardRouter } from './routes/dashboard.js';
 
 const app = express();
 app.use(express.json({ limit: '1mb' }));
@@ -36,6 +37,7 @@ app.use('/api', analyzeRouter);
 app.use('/api/ingest', ingestRouter);
 app.use('/api/searches', searchesRouter);
 app.use('/api/outreach', outreachRouter);
+app.use('/api/dashboard', dashboardRouter);
 
 // Central error handler — keeps route code on the happy path.
 app.use((err, _req, res, _next) => {

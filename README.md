@@ -81,6 +81,7 @@ Edit `config/companies.json`, then run `npm run seed` — no code changes needed
 | `POST /api/auth/login` `{email}` | Email-only sign-in (creates the account on first use), sets a signed session cookie |
 | `GET /api/me` | Current user |
 | `GET /api/jobs` | Search/filter: `q`, `location`, `remote=1`, `type`, `min_score`, `lane=verified\|exploratory` (omit for all), `sort=newest\|match`, `page`. Rows include `verification_lane`, `trust_score`, and cached match data for your latest CV |
+| `GET /api/dashboard/summary?window_days=7` | Aggregate dashboard counters (new matches, follow-ups due, outreach mix, saved searches) |
 | `POST /api/cv` (multipart `file`) | Upload PDF/DOCX → text extraction → LLM structured parse |
 | `GET /api/cv` / `PUT /api/cv` | Read / correct the extracted profile (corrections create a new CV version) |
 | `POST /api/jobs/:id/analyze` | Match analysis for one job (cached per user + CV + job) |
